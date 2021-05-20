@@ -44,7 +44,7 @@ function App() {
     setFormValues({ ...formValues, [name]: value })
   }
   const submit = (event) => {
-    event.preventDefault()
+
     const newUser = {
       Name: formValues.Name.trim(),
       Email: formValues.Email.trim(),

@@ -50,7 +50,7 @@ export default function Userform(props) {
                 <input
                         type='checkbox'
                         name='Terms'
-                        checked={values.TermOfService}
+                        checked={values.Terms}
                         onChange={onChange} /> </label> </div>
             <button disabled={disabled}>submit</button>
         </form >
