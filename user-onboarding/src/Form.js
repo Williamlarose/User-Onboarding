@@ -10,28 +10,49 @@ export default function Userform(props) {
     } = props
     function onSubmit(event) {
         event.preventDefault()
+        submit()
     }
+    <div>
+        <div>{errors.username}</div>
+        <div>{errors.email}</div>
+        <div>{errors.PasswordTermOfService}</div>
+        <div>{errors.TermOfService}</div>
+    </div>
 
     function onChange(event) {
         const { name, value, checked, type } = event.target
         const valueToUse = type === 'checkbox' ? checked : value
-
+        change(name, valueToUse)
     }
     return (
         <form onSubmit={onSubmit}>
             <input
                 type='text'
                 name='Name'
-                onChange={change}
+                onChange={onChange}
                 value={values.Name}
             />
             <input
                 type='text'
                 name='Email'
-                onChange={change}
+                onChange={onChange}
                 value={values.Email}
             />
-            <button>Submit</button>
-        </form>
+            <input
+                type='text'
+                name='Password'
+                onChange={onChange}
+                value={values.Password}
+            />
+
+            <div>
+                <label>TermOfService
+                <input
+                        type='checkbox'
+                        name='Terms'
+                        checked={values.TermOfService}
+                        onChange={onChange} /> </label> </div>
+            <button disabled={disabled}>submit</button>
+        </form >
     )
 }
